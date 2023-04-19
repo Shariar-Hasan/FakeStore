@@ -12,15 +12,16 @@ npm install @ethico/fakestore
 ```
 
 Alternatively, you can download the `FakeStore.js` file and include it in your project manually.
+or You can use the CDN for it
 
 ```html
-<script src="fakestore.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/Shariar-Hasan/FakeStore/src/FakeStore.js"></script>
 ```
 
-for script tag, you dont have to import it. Or else You have to import it.
+for importing :
 
 ```javascript
-const store = new FakeStore("mydb");
+import FakeStore from "@ethico/fakestore";
 ```
 
 ## Usage
@@ -28,7 +29,7 @@ const store = new FakeStore("mydb");
 Creating a new instance of the FakeStore class requires specifying the name of the database to create or access:
 
 ```javascript
-import FakeStore from "@ethico/fakestore";
+const store = new FakeStore("mydb");
 ```
 
 ### Methods
