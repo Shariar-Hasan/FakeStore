@@ -1,0 +1,25 @@
+{
+  "name": "@ethico/fakestore",
+  "version": "1.0.0",
+  "description": "Its a simple package to store your data in your borwser's localstorage",
+  "main": "./src/FakeStore.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shariar-Hasan/FakeStore.git"
+  },
+  "keywords": [
+    "localstorage",
+    "fakestore",
+    "storage",
+    "store"
+  ],
+  "author": "Shariar Hasan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Shariar-Hasan/FakeStore/issues"
+  },
+  "homepage": "https://github.com/Shariar-Hasan/FakeStore#readme"
+}
