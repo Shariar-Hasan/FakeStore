@@ -9,7 +9,11 @@ form.addEventListener("submit", (e) => {
   }
   const newText = {};
   newText[typedtext.name] = typedtext.value;
-  database.push(database.createUID(), newText);
+  database.push(newText);
   //database.push(newText);
+  // database.update("1681945622389", {
+  //   typedtext: "AMar nam hasan 3000",
+  // });
+  // database.clear()
+  console.log(database.get());
 });
-console.log(database.get());

@@ -33,12 +33,16 @@ class FakeStore {
     let items = this.get();
     if (!key || !item) {
       throw new Error("Key or Updated Data missing");
-    }
-    if (key) {
-      const restOfTheItems = items.filter((item) => item._id !== key);
-      localStorage.setItem(this.dbname, JSON.stringify(restOfTheItems));
     } else {
-      localStorage.setItem(this.dbname, JSON.stringify([]));
+      let index = items.findIndex((it) => it._id === key);
+      if (!index) {
+        throw new Error("Key not matched");
+      } else {
+        item._id = key;
+        items[index] = item;
+        localStorage.setItem(this.dbname, JSON.stringify(items));
+        return this.get(key);
+      }
     }
   }
   remove(key) {
@@ -53,23 +57,20 @@ class FakeStore {
   clear() {
     localStorage.removeItem(this.dbname);
   }
-  createUID({ start, end } = {}) {
+  createUID(option = {}) {
+    let { start = "", end = "" } = option;
     let id = "" + new Date().getTime();
-    if (start) {
-      id = start + id;
-    }
-    if (end) {
-      id = id + end;
-    }
-    return id;
+    start += "";
+    end += "";
+    return start + id + end;
   }
 }
 // Export the class for CommonJS environments
-if (typeof module !== 'undefined' && module.exports) {
+if (typeof module !== "undefined" && module.exports) {
   module.exports = FakeStore;
 }
 
 // Export the class for ES6 environments
-if (typeof exports !== 'undefined') {
+if (typeof exports !== "undefined") {
   exports.default = FakeStore;
 }

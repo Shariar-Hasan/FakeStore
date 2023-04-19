@@ -15,7 +15,7 @@ Alternatively, you can download the `FakeStore.js` file and include it in your p
 or You can use the CDN for it
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/Shariar-Hasan/FakeStore/src/FakeStore.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/Shariar-Hasan/FakeStore@1.0.0/src/FakeStore.js"></script>
 ```
 
 for importing :
@@ -71,7 +71,7 @@ store.update("abc123", { name: "Jane Doe", age: 26 });
 
 #### `remove(key)`
 
-Removes an item from the database. The item to remove is identified by its key.
+Removes one or all items from the database. The item to remove is identified by its key. If no key is provided, then it will delete all item in the database.
 
 ```javascript
 // remove item with specific key
@@ -80,20 +80,23 @@ store.remove("abc123");
 
 #### `clear()`
 
-Clears all items from the database.
+Drop/ Delete all databases from the localstorage.
 
 ```javascript
 // clear all items
 store.clear();
 ```
 
-#### `createUID({ start, end } = {})`
+#### `createUID()`
 
-Generates a unique ID for an item. This method is used internally by `push()` when a key is not provided.
+Generates a unique ID for an item. This method is mainly used internally by `push()` when a key is not provided. But you can use it for making key to push data to FakeStore
 
 ```javascript
 // generate unique ID
-const id = store.createUID({ start: "user-", end: "-id" });
+const id = store.createUID(); // 2319075320750
+const id2 = store.createUID({ start: "user-" });// user-2319075320750
+const id3 = store.createUID({ end: "-id" });// 2319075320750-id
+const id4 = store.createUID({ start: "user-", end: "-id" });// user-2319075320750-id
 ```
 
 ## License
