@@ -15,7 +15,7 @@ Alternatively, you can download the `FakeStore.js` file and include it in your p
 or You can use the CDN for it
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/Shariar-Hasan/FakeStore@1.0.0/src/FakeStore.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/Shariar-Hasan/FakeStore@1.0.1/src/FakeStore.js"></script>
 ```
 
 for importing :
