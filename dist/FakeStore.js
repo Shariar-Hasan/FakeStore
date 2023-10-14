@@ -1,4 +1,4 @@
-export class FakeStore {
+class FakeStore {
   constructor(dbname) {
     this.dbname = dbname;
     if (!localStorage.getItem(dbname)) {
@@ -72,3 +72,4 @@ export class FakeStore {
     return start + id + end;
   }
 }
+export { FakeStore };
