@@ -1,4 +1,4 @@
-class FakeStore {
+export default class FakeStore {
   constructor(dbname) {
     this.dbname = dbname;
     // setting db name if not exist
@@ -6,20 +6,23 @@ class FakeStore {
       localStorage.setItem(dbname, JSON.stringify([]));
     }
   }
+
+  // get items according to key or not key
   get(key) {
     try {
+      let items = JSON.parse(localStorage.getItem(this.dbname));
       if (key) {
-        let items = JSON.parse(localStorage.getItem(this.dbname));
         return items.filter((item) => item[`fs_id`] == key);
       } else {
-        return JSON.parse(localStorage.getItem(this.dbname));
+        return items;
       }
     } catch (err) {
       console.error(err);
     }
   }
+
   // inserting or updating existing item
-  push(item, key) {
+  push(key, item) {
     try {
       let items = this.get();
       if (!item) {
@@ -29,7 +32,7 @@ class FakeStore {
       item.fs_id = key;
       const exist = items?.find((it) => it.fs_id === key);
       if (exist) {
-        throw new Error("Key already Exist");
+        throw new Error("Key already Exist! use Update method");
       }
       items.push(item);
       localStorage.setItem(this.dbname, JSON.stringify(items));
@@ -38,34 +41,50 @@ class FakeStore {
       console.error(err);
     }
   }
+
+  // update accordsing to certein key
   update(key, item) {
-    let items = this.get();
-    if (!key || !item) {
-      throw new Error("Key or Updated Data missing");
-    } else {
-      let index = items.findIndex((it) => it.fs_id === key);
-      if (!index) {
-        throw new Error("Key not matched");
+    try {
+      let items = this.get();
+      if (!key || !item) {
+        throw new Error("Key or Updated Data missing");
       } else {
-        item.fs_id = key;
-        items[index] = item;
-        localStorage.setItem(this.dbname, JSON.stringify(items));
-        return this.get(key);
+        let index = items.findIndex((it) => it.fs_id === key);
+        if (!index) {
+          throw new Error("Key not matched");
+        } else {
+          item.fs_id = key;
+          items[index] = item;
+          localStorage.setItem(this.dbname, JSON.stringify(items));
+          return this.get(key);
+        }
       }
+    } catch (err) {
+      console.error(err);
     }
   }
+
+  // removing one item or all
   remove(key) {
-    let items = this.get();
-    if (key) {
-      const restOfTheItems = items.filter((item) => item.fs_id !== key);
-      localStorage.setItem(this.dbname, JSON.stringify(restOfTheItems));
-    } else {
-      localStorage.setItem(this.dbname, JSON.stringify([]));
+    try {
+      let items = this.get();
+      if (key) {
+        const restOfTheItems = items.filter((item) => item.fs_id !== key);
+        localStorage.setItem(this.dbname, JSON.stringify(restOfTheItems));
+      } else {
+        localStorage.setItem(this.dbname, JSON.stringify([]));
+      }
+    } catch (err) {
+      console.error(err);
     }
   }
+
+  // clear the whole database
   clear() {
     localStorage.removeItem(this.dbname);
   }
+
+  // create User ID
   createUID(option = {}) {
     let { start = "", end = "" } = option;
     let id = "" + new Date().getTime();
@@ -74,4 +93,3 @@ class FakeStore {
     return start + id + end;
   }
 }
-export default FakeStore;
