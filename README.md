@@ -1,5 +1,8 @@
 # FakeStore
 
+[![npm version](https://img.shields.io/npm/v/@ethico/fakestore)](https://www.npmjs.com/package/@ethico/fakestore)
+[![License](https://img.shields.io/github/license/Shariar-Hasan/FakeStore)](https://github.com/Shariar-Hasan/FakeStore/LICENSE)
+
 FakeStore is a JavaScript package that provides a simple way to store, retrieve, and delete items from local storage in the browser. It uses object-oriented programming principles to provide a clean and easy-to-use interface.
 
 ## Installation
@@ -15,7 +18,7 @@ Alternatively, you can download the `FakeStore.js` file and include it in your p
 or You can use the CDN for it
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/Shariar-Hasan/FakeStore@1.0.1/src/FakeStore.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/Shariar-Hasan/FakeStore@1.0.2/src/FakeStore.min.js"></script>
 ```
 
 for importing :
@@ -56,7 +59,7 @@ Adds an item to the database. If a key is provided, the item will be added with 
 // add item with automatically generated key
 store.push({ name: "John", age: 30 });
 
-// add item with specified key
+// add item with specific key
 store.push("abc123", { name: "Jane", age: 25 });
 ```
 
@@ -94,11 +97,16 @@ Generates a unique ID for an item. This method is mainly used internally by `pus
 ```javascript
 // generate unique ID
 const id = store.createUID(); // 2319075320750
-const id2 = store.createUID({ start: "user-" });// user-2319075320750
-const id3 = store.createUID({ end: "-id" });// 2319075320750-id
-const id4 = store.createUID({ start: "user-", end: "-id" });// user-2319075320750-id
+const id2 = store.createUID({ start: "user-" }); // user-7503207231950
+const id3 = store.createUID({ end: "-id" }); // 3207523190750-id
+const id4 = store.createUID({ start: "user-", end: "-id" }); // user-7532231900750-id
 ```
+
+## Contribution
+
+Contribution on this repository is welcomed. Feel free to contribute, with your excellent idea.
 
 ## License
 
 This code is released under the MIT License.
+
