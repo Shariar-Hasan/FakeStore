@@ -1,6 +1,6 @@
 {
   "name": "@ethico/fakestore",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Its a simple package to store your data in your borwser's localstorage",
   "main": "index.js",
   "type": "module",

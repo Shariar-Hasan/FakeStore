@@ -1,1 +1,2 @@
-export * from "./dist/FakeStore"
+import FakeStore from "./dist/FakeStore";
+export default FakeStore;
