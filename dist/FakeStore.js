@@ -72,4 +72,4 @@ class FakeStore {
     return start + id + end;
   }
 }
-export { FakeStore };
+export default FakeStore;
