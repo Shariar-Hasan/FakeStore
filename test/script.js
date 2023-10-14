@@ -1,5 +1,4 @@
 
-console.log(a);
 const database = new FakeStore("foo");
 const form = document.getElementById("form");
 const typedtext = document.getElementById("typedtext");
