@@ -1,6 +1,7 @@
 class FakeStore {
   constructor(dbname) {
     this.dbname = dbname;
+    // setting db name if not exist
     if (!localStorage.getItem(dbname)) {
       localStorage.setItem(dbname, JSON.stringify([]));
     }
@@ -17,6 +18,7 @@ class FakeStore {
       console.error(err);
     }
   }
+  // inserting or updating existing item
   push(item, key) {
     try {
       let items = this.get();
