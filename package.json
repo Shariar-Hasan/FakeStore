@@ -15,7 +15,8 @@
     "localstorage",
     "fakestore",
     "storage",
-    "store", "store-api"
+    "store",
+    "store-api"
   ],
   "author": "Shariar Hasan",
   "license": "MIT",
