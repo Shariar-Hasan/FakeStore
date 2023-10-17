@@ -5,6 +5,12 @@
 
 FakeStore is a JavaScript package that provides a simple way to store, retrieve, and delete items from local storage in the browser. It uses object-oriented programming principles to provide a clean and easy-to-use interface.
 
+## Table of Content
+- [Installation](#installation)
+- [Usage](#usage)
+- [Methods](#methods)
+- [Contribution](#contribution)
+- [License](#license)
 ## Installation
 
 To use FakeStore, simply download the code from this repository and include it in your project.
@@ -29,11 +35,26 @@ import FakeStore from "@ethico/fakestore";
 
 ## Usage
 
-Creating a new instance of the FakeStore class requires specifying the name of the database to create or access:
+Creating a new instance of the FakeStore class requires specifying the name of the collection to create or access:
 
 ```javascript
 const store = new FakeStore("mydb");
 ```
+
+Best way to do this, create a global `store.js` and inside it, write likie this
+
+```javascript
+export const store = new FakeStore("my collection");
+```
+
+if you have multiple collection, try this:
+
+```javascript
+export const collection_1 = new FakeStore("collection_1");
+export const collection_2 = new FakeStore("collection_2");
+export const collection_3 = new FakeStore("collection_3");
+```
+
 
 ### Methods
 
@@ -48,7 +69,7 @@ Retrieves one or more items from the database. If a key is provided, only the it
 const allItems = store.get();
 
 // get item with specific key
-const singleItem = store.get("abc123");
+const singleItem = store.get("1fk2str");
 ```
 
 #### `push(key, item)`
@@ -60,7 +81,7 @@ Adds an item to the database. If a key is provided, the item will be added with 
 store.push({ name: "John", age: 30 });
 
 // add item with specific key
-store.push("abc123", { name: "Jane", age: 25 });
+store.push("1fk2str", { name: "Jane", age: 25 });
 ```
 
 #### `update(key, item)`
@@ -69,7 +90,7 @@ Updates an existing item in the database with new data. The item to update is id
 
 ```javascript
 // update item with specific key
-store.update("abc123", { name: "Jane Doe", age: 26 });
+store.update("1fk2str", { name: "Jane Doe", age: 26 });
 ```
 
 #### `remove(key)`
@@ -78,7 +99,7 @@ Removes one or all items from the database. The item to remove is identified by 
 
 ```javascript
 // remove item with specific key
-store.remove("abc123");
+store.remove("1fk2str");
 ```
 
 #### `clear()`
@@ -96,10 +117,14 @@ Generates a unique ID for an item. This method is mainly used internally by `pus
 
 ```javascript
 // generate unique ID
-const id = store.createUID(); // 2319075320750
-const id2 = store.createUID({ start: "user-" }); // user-7503207231950
-const id3 = store.createUID({ end: "-id" }); // 3207523190750-id
-const id4 = store.createUID({ start: "user-", end: "-id" }); // user-7532231900750-id
+const id = store.createUID(); 
+//Output: 2319075320750
+const id2 = store.createUID({ start: "user-" }); 
+//Output: user-7503207231950
+const id3 = store.createUID({ end: "-id" }); 
+//Output: 3207523190750-id
+const id4 = store.createUID({ start: "user-", end: "-id" }); 
+//Output: user-7532231900750-id
 ```
 
 ## Contribution
@@ -109,4 +134,3 @@ Contribution on this repository is welcomed. Feel free to contribute, with your 
 ## License
 
 This code is released under the MIT License.
-

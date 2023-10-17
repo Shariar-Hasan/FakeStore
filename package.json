@@ -1,9 +1,8 @@
 {
   "name": "@ethico/fakestore",
   "version": "1.0.3",
-  "description": "Its a simple package to store your data in your borwser's localstorage",
+  "description": "Its a simple package to store your data in your browser's localstorage",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
