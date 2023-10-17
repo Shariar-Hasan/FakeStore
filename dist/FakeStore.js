@@ -74,7 +74,7 @@ class FakeStore {
   remove(key) {
     try {
       let items = this.get();
-      if (key !== undefined || key !== null) {
+      if (key !== undefined && key !== null) {
         const restOfTheItems = items.filter((item) => item.fs_id !== key);
         localStorage.setItem(this.dbname, JSON.stringify(restOfTheItems));
       } else {
@@ -101,3 +101,4 @@ class FakeStore {
 }
 window.FakeStore = FakeStore;
 export default FakeStore;
+

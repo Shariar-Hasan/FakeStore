@@ -105,7 +105,7 @@ store.remove("1fk2str");
 
 #### `clear()`
 
-Drop/ Delete all databases from the localstorage.
+Drop/ Delete whole database from the localstorage.
 
 ```javascript
 // clear all items
