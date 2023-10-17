@@ -1,4 +1,4 @@
-export default class FakeStore {
+class FakeStore {
   constructor(dbname) {
     this.dbname = dbname;
     // setting db name if not exist
@@ -25,24 +25,30 @@ export default class FakeStore {
   push(key, item) {
     try {
       let items = this.get();
+      // if key is not defined
       if (!item) {
         item = key;
         key = this.createUID();
       }
+      // if item is not an object
+      if (!(typeof item === "object" && Object(item) === item)) {
+        throw new Error("Pushed Value must be an object");
+      }
       item.fs_id = key;
       const exist = items?.find((it) => it.fs_id === key);
+      // if the key is already exist
       if (exist) {
         throw new Error("Key already Exist! use Update method");
       }
       items.push(item);
       localStorage.setItem(this.dbname, JSON.stringify(items));
-      return this.get;
+      return item;
     } catch (err) {
       console.error(err);
     }
   }
 
-  // update accordsing to certein key
+  // update according to certein key
   update(key, item) {
     try {
       let items = this.get();
@@ -56,7 +62,7 @@ export default class FakeStore {
           item.fs_id = key;
           items[index] = item;
           localStorage.setItem(this.dbname, JSON.stringify(items));
-          return this.get(key);
+          return (addedItem = this.get(key));
         }
       }
     } catch (err) {
@@ -68,7 +74,7 @@ export default class FakeStore {
   remove(key) {
     try {
       let items = this.get();
-      if (key) {
+      if (key !== undefined && key !== null) {
         const restOfTheItems = items.filter((item) => item.fs_id !== key);
         localStorage.setItem(this.dbname, JSON.stringify(restOfTheItems));
       } else {
@@ -93,3 +99,6 @@ export default class FakeStore {
     return start + id + end;
   }
 }
+window.FakeStore = FakeStore;
+export default FakeStore;
+

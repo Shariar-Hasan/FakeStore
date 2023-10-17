@@ -1,6 +1,6 @@
 {
   "name": "@ethico/fakestore",
-  "version": "1.0.3",
+  "version": "1.0.6",
   "description": "Its a simple package to store your data in your browser's localstorage",
   "main": "index.js",
   "scripts": {
@@ -15,7 +15,9 @@
     "fakestore",
     "storage",
     "store",
-    "store-api"
+    "store-api",
+    "sessionstorage",
+    "storelocally"
   ],
   "author": "Shariar Hasan",
   "license": "MIT",

@@ -24,7 +24,7 @@ Alternatively, you can download the `FakeStore.js` file and include it in your p
 or You can use the CDN for it
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/Shariar-Hasan/FakeStore@1.0.3/src/FakeStore.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/Shariar-Hasan/FakeStore/dist/FakeStore.min.js"></script>
 ```
 
 for importing :
@@ -83,6 +83,7 @@ store.push({ name: "John", age: 30 });
 // add item with specific key
 store.push("1fk2str", { name: "Jane", age: 25 });
 ```
+** **
 
 #### `update(key, item)`
 
@@ -104,7 +105,7 @@ store.remove("1fk2str");
 
 #### `clear()`
 
-Drop/ Delete all databases from the localstorage.
+Drop/ Delete whole database from the localstorage.
 
 ```javascript
 // clear all items
