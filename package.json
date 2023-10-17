@@ -1,6 +1,6 @@
 {
   "name": "@ethico/fakestore",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Its a simple package to store your data in your browser's localstorage",
   "main": "index.js",
   "scripts": {
